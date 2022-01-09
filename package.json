@@ -1,0 +1,10 @@
+{
+  "private": true,
+  "scripts": {
+    "start": "node ./src/index.js"
+  },
+  "dependencies": {
+    "discord.js": "^13.5.1",
+    "dotenv": "^10.0.0"
+  }
+}
