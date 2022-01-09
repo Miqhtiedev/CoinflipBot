@@ -1,3 +1,6 @@
+process.on("unhandledException", console.error);
+process.on("unhandledRejection", console.error);
+
 if (process.env.NODE_ENV !== "production") require("dotenv").config();
 
 const Discord = require("discord.js");
@@ -25,6 +28,3 @@ client.on("messageCreate", (message) => {
 });
 
 client.login(process.env.TOKEN);
-
-process.on("unhandledException", console.error);
-process.on("unhandledRejection", console.error);
