@@ -12,13 +12,19 @@ client.once("ready", () => {
 
 client.on("messageCreate", (message) => {
   if (!message.author.bot && message.content.toLowerCase().trim().startsWith(`${PREFIX}coinflip`)) {
-    message.channel.send("Flipping...").then((message) => {
-      setTimeout(() => {
-        const rand = Math.random() > 0.5;
-        message.edit(`It's ${rand ? "heads" : "tails"}!`);
-      }, 1000);
-    });
+    message.channel
+      .send("Flipping...")
+      .then((message) => {
+        setTimeout(() => {
+          const rand = Math.random() > 0.5;
+          message.edit(`It's ${rand ? "heads" : "tails"}!`);
+        }, 1000);
+      })
+      .catch(console.error);
   }
 });
 
 client.login(process.env.TOKEN);
+
+process.on("unhandledException", console.error);
+process.on("unhandledRejection", console.error);
